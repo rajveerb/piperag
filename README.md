@@ -55,6 +55,8 @@ pip install grpcio-tools
 conda install -c pytorch -c nvidia faiss-gpu=1.7.4 mkl=2021 blas=1.0=mkl
 # or on CPU-only server
 conda install -c pytorch faiss-cpu=1.7.4 mkl=2021 blas=1.0=mkl
+# Below needs to be added due to https://github.com/easydiffusion/easydiffusion/issues/1851 error
+pip install huggingface-hub==0.25.2
 ```
 
 In ~/.bashrc:

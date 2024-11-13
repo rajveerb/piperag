@@ -3,6 +3,8 @@ Profile the performance of CPU Sbert
 
 Example usage:
     python test_sbert_performance.py --nq 100 --chunk_size 64 --perf_file ./performance/p4d.24xlarge_performance_SBERT.pickle
+    KEPLER2:
+    python test_sbert_performance.py --nq 100 --chunk_size 64 --perf_file ./performance/kepler2_performance_SBERT.pickle
 
 Saved pickle object format:
     a dictionary with keys: "average_latency_ms", "latency_std_ms", "P95_latency_ms"

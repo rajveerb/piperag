@@ -8,6 +8,13 @@ Example usage:
     --query_file $WORKSPACE/data/datasets/c4-en/c4-train.00000-of-01024.embeddings.npy \
     --nq 1000 --max_nprobe 128 \
     --save_perf --perf_file ./performance/p4d.24xlarge_performance_search_c4_chunk_0_to_999_IVF16384,PQ64.pickle
+    KEPLER2:
+    python test_retrieval_performance.py \
+    --index_dir $WORKSPACE/data/datasets/indexes_c4/c4_chunk_0_to_1/IVF16384,PQ64_populated_0_to_0.index \
+    --query_file $WORKSPACE/data/datasets/c4-en/c4-train.00000-of-01024.embeddings.npy \
+    --nq 1000 --max_nprobe 128 \
+    --save_perf --perf_file ./performance/kepler2_performance_search_c4_chunk_0_to_0_IVF16384,PQ64.pickle
+
 
 Saved pickle object format:
     a dictionary with keys: "average_latency_ms", "latency_std_ms", "P95_latency_ms", 

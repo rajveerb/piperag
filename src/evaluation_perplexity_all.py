@@ -33,6 +33,12 @@ Example usage:
         --generation_model_path $WORKSPACE/inference/performance/p4d.24xlarge_performance_generation_len_1024_k_2.pickle \
         --retrieval_model_path $WORKSPACE/inference/performance/m5.metal.2.5GHz_performance_search_c4_chunk_0_to_999_IVF16384,PQ64.pickle \
         --sbert_model_path $WORKSPACE/inference/performance/m5.metal.2.5GHz_performance_SBERT.pickle 
+    KEPLER2:
+    python evaluation_perplexity_all.py --test_dataset_spec $WORKSPACE/data/datasets/val_c4/val_db_c4_to_0.json --mode stale_dynamic_nprobe \
+        --perf_model_server_inference kepler2 --perf_model_server_retrieval kepler2 \
+        --generation_model_path $WORKSPACE/inference/performance/kepler2_performance_generation_len_1024_k_2.pickle \
+        --retrieval_model_path $WORKSPACE/inference/performance/kepler2_performance_search_c4_chunk_0_to_999_IVF16384,PQ64.pickle \
+        --sbert_model_path $WORKSPACE/inference/performance/kepler2_performance_SBERT.pickle
 
     # our solution with staleness, but without additional retrievals (set less stale steps)
     python evaluation_perplexity_all.py --test_dataset_spec $WORKSPACE/data/datasets/val_wikipedia/val_wikipedia_chunk9_1K/val_db_c4_to_999.json --mode stale_without_additional_retrievals

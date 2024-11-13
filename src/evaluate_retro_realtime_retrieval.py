@@ -15,7 +15,11 @@ Example usage (with performance model):
         --retrieval_model_path /fsx/retro_tobias/inference/performance/p4d.24xlarge_performance_search_c4_chunk_0_to_999_IVF16384,PQ64.pickle \
         --sbert_model_path /fsx/retro_tobias/inference/performance/p4d.24xlarge_performance_SBERT.pickle \
         --extra_overhead_ms 10 --search_latency_budget_discount 1.0 --batch-size 64 --gpus-per-node 1 --num-nodes 1 --num-workers 0 --nprobe 1
-
+    KEPLER2:
+    python evaluate_retro_realtime_retrieval.py  --test-dataset-spec $WORKSPACE/data/datasets/val_c4/val_db_c4_to_0.json \
+        --num-neighbours 2 --max-len 1024 --num-continuation-chunks 1 --staleness 1 --remove_stale_context 1 --no-retrieval 0 --retrieval-interval 64 \
+        --checkpoint $WORKSPACE/data/model/model.ckpt --retro-config $WORKSPACE/data/model/retro.json \
+        --batch-size 64 --gpus-per-node 1 --num-nodes 1 --num-workers 0 --nprobe 1
 """
 
 import argparse

@@ -19,6 +19,15 @@ Profile the performance:
         --batch_size 1 --chunk_size 64 --num_continuation_chunks 1 --num_neighbours 2 \
         --interval 64 --max_seq_len 1024 --staleness 1 \
         --mode profile_local_generation --num_runs 5 --perf_file ./performance/p4d.24xlarge_performance_generation_len_1024_k_2.pickle
+
+        python inference_client.py --host 127.0.0.1 --port 50051  \
+        --checkpoint $WORKSPACE/data/model/model.ckpt \
+        --retro_config $WORKSPACE/data/model/retro.json \
+        --encoder_dir $WORKSPACE/src/onnx_retro_encoder/retro_encoder.onnx \
+        --decoder_dir $WORKSPACE/src/onnx_retro_decoder/retro_decoder.onnx \
+        --batch_size 1 --chunk_size 64 --num_continuation_chunks 1 --num_neighbours 2 \
+        --interval 64 --max_seq_len 1024 --staleness 1 \
+        --mode profile_local_generation --num_runs 5 --perf_file ./performance/kepler2_performance_generation_len_1024_k_2.pickle
 """
 
 import asyncio

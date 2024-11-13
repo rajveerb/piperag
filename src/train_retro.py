@@ -66,7 +66,7 @@ def get_realtime_retrieval_retro_dataset_from_spec(
 
     print("Load index...")
     start = time.time()
-    index = faiss.read_index(str(base_dir / spec["neighbours"]["faiss_index"]))
+    index = faiss.read_index(str((base_dir / spec["neighbours"]["faiss_index"]).resolve()))
     assert index.is_trained, "The index must be trained"
     if use_gpus:
         co = faiss.GpuMultipleClonerOptions()
